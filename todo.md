@@ -1,0 +1,25 @@
+# Project TODO
+
+- [x] Resolve Home.tsx conflict - restore ZEUS dashboard page with auth integration
+- [x] Design database schema for all 4 sheets (STOC REAL, SERVICII, INCHISE, SERVICE)
+- [x] Run database migrations
+- [x] Import all Excel data into database
+- [x] Build backend API routes (CRUD) for STOC REAL
+- [x] Build backend API routes (CRUD) for SERVICII
+- [x] Build backend API routes (CRUD) for INCHISE
+- [x] Build backend API routes (CRUD) for SERVICE
+- [x] Build frontend table view with inline editing for STOC REAL
+- [x] Build frontend table view with inline editing for SERVICII
+- [x] Build frontend table view for INCHISE
+- [x] Build frontend table view for SERVICE
+- [x] Add ZEUS Control filtering (by employee name in "Comenzi de lucru")
+- [x] Add navigation sidebar with all sections
+- [x] Add search and filter capabilities
+- [x] Add ability to add/delete rows
+- [ ] Fix table layout - must fit in page without excessive horizontal scrolling
+- [ ] Add Excel-like row coloring for product groups
+- [ ] Fix Liana - Ardeal in all filter options
+- [ ] Fix Dan Dinescu name in all filter options
+- [ ] Optimize table for practical daily use (compact, readable, efficient)
+- [ ] Write vitest tests
+- [ ] Final checkpoint and delivery
