@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE stoc_real SET rowColor = '#00FFFF' WHERE produs IN ('PBA 16M', 'PBA 18M', 'PBA 16B', 'PBA 18B', 'CAV 8M', 'SILOBAG');\nUPDATE stoc_real SET rowColor = '#00FF00' WHERE produs IN ('P 1000x1200', 'P 1200x1200', 'P 1500x1500', '9ft (2,7m)', '9ft (2,7m)\\n', '6,5ft x 60m 200 microni', '6,5ft x80m');\nUPDATE stoc_real SET rowColor = '#00FF00' WHERE produs LIKE '9ft%' OR produs LIKE '6,5ft%' OR produs LIKE 'P 1%';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2ow7sy5Amb6eZwA.root --database ANCGULnngiXNH25MisKV7V --execute UPDATE stoc_real SET rowColor = '#00FFFF' WHERE produs IN ('PBA 16M', 'PBA 18M', 'PBA 16B', 'PBA 18B', 'CAV 8M', 'SILOBAG');\nUPDATE stoc_real SET rowColor = '#00FF00' WHERE produs IN ('P 1000x1200', 'P 1200x1200', 'P 1500x1500', '9ft (2,7m)', '9ft (2,7m)\\n', '6,5ft x 60m 200 microni', '6,5ft x80m');\nUPDATE stoc_real SET rowColor = '#00FF00' WHERE produs LIKE '9ft%' OR produs LIKE '6,5ft%' OR produs LIKE 'P 1%';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 646
+}

@@ -1,0 +1,1 @@
+ALTER TABLE `stoc_real` ADD `rowColor` varchar(20);

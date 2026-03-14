@@ -1,0 +1,646 @@
+/**
+ * ZEUS Dashboard v2.0 - "Command Center Emerald" Design
+ * Design: Aerospace control room aesthetic with emerald green palette
+ * Typography: Montserrat (headings) + Open Sans (body)
+ * Colors: #005C4B (dark emerald), #008060 (medium), #E0F2F1 (light)
+ */
+
+import { motion } from "framer-motion";
+import {
+  Building2,
+  ChevronDown,
+  ClipboardList,
+  Filter,
+  Layers,
+  Monitor,
+  MousePointerClick,
+  Package,
+  RefreshCw,
+  Rocket,
+  Settings2,
+  ShieldCheck,
+  Users,
+  Wrench,
+  Zap,
+  Headset,
+} from "lucide-react";
+
+const LOGO_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663436850994/ANCGULnngiXNH25MisKV7V/Logo-IULIANCANTAR_f73f0b9c.png";
+const HERO_BG_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663436850994/ANCGULnngiXNH25MisKV7V/zeus-hero-bg-PgoKqjSEgARzwzLXk3vDqw.webp";
+const ORG_BG_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663436850994/ANCGULnngiXNH25MisKV7V/zeus-org-bg-R9P5rRwfqzFT3T7Vis9bw6.webp";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: [0, 0, 0.2, 1] as const },
+  }),
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { delay: i * 0.08, duration: 0.5, ease: [0, 0, 0.2, 1] as const },
+  }),
+};
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-[#F0F7F5]">
+      {/* ═══════════════════════════════════════════════════════════
+          HERO SECTION
+      ═══════════════════════════════════════════════════════════ */}
+      <section
+        className="relative overflow-hidden"
+        style={{
+          background: `linear-gradient(135deg, #003D33 0%, #005C4B 40%, #004A3C 100%)`,
+        }}
+      >
+        {/* Background image overlay */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `url(${HERO_BG_URL})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#003D33]/60" />
+
+        <div className="relative z-10 container mx-auto px-6 py-16 md:py-24">
+          <div className="flex flex-col items-center text-center">
+            {/* Logo */}
+            <motion.img
+              src={LOGO_URL}
+              alt="Iulian Cântar Logo"
+              className="w-24 h-24 md:w-32 md:h-32 object-contain mb-6 drop-shadow-2xl"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            />
+
+            {/* Title */}
+            <motion.h1
+              className="font-heading text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-4"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+            >
+              BINE AȚI VENIT LA{" "}
+              <span className="text-[#4EEAAA]">ZEUS</span>{" "}
+              <span className="text-[#A8E6CF] text-3xl md:text-5xl lg:text-6xl font-bold">
+                v2.0
+              </span>
+            </motion.h1>
+
+            {/* Subtitle */}
+            <motion.p
+              className="text-[#A8E6CF] text-lg md:text-xl lg:text-2xl font-medium italic mb-8 max-w-3xl"
+              style={{ fontFamily: "'Open Sans', sans-serif" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.7 }}
+            >
+              Turnul de Control al Companiei Iulian Cântar — Hai să facem
+              treabă!
+            </motion.p>
+
+            {/* Decorative line */}
+            <motion.div
+              className="w-24 h-1 bg-[#4EEAAA] rounded-full mb-8"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            />
+
+            {/* Scroll indicator */}
+            <motion.div
+              className="text-[#A8E6CF]/60"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+            >
+              <ChevronDown className="w-6 h-6" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          INTRODUCTION SECTION
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <motion.div
+            className="text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUp}
+            custom={0}
+          >
+            <div className="inline-flex items-center gap-2 bg-[#E0F2F1] text-[#005C4B] px-4 py-2 rounded-full text-sm font-semibold mb-6 tracking-wide uppercase"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              <Zap className="w-4 h-4" />
+              Despre Sistem
+            </div>
+            <p
+              className="text-[#2D3B38] text-lg md:text-xl leading-relaxed"
+              style={{ fontFamily: "'Open Sans', sans-serif" }}
+            >
+              Sistemul <strong className="text-[#005C4B]">ZEUS v2.0</strong>{" "}
+              este centrul operațional inteligent al companiei{" "}
+              <strong className="text-[#005C4B]">Iulian Cântar</strong>. Acesta
+              vă permite să gestionați eficient comenzile de lucru și
+              serviciile, oferind o vizualizare clară și o filtrare rapidă a
+              datelor esențiale. Conceput pentru colaborare în timp real, ZEUS
+              este instrumentul dumneavoastră pentru succes și eficiență maximă.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          KEY SECTIONS OVERVIEW
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-20 bg-[#F0F7F5]">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUp}
+            custom={0}
+          >
+            <h2
+              className="text-2xl md:text-3xl font-bold text-[#005C4B] tracking-tight uppercase"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              Secțiuni Principale ZEUS
+            </h2>
+            <div className="w-16 h-1 bg-[#008060] rounded-full mx-auto mt-4" />
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Package,
+                title: "STOC REAL",
+                desc: "Monitorizarea contractelor active pentru care livrarea produselor este în curs de planificare sau execuție.",
+                color: "#005C4B",
+                bgColor: "#E0F2F1",
+              },
+              {
+                icon: Wrench,
+                title: "SERVICII",
+                desc: "Gestiunea fluxului operațional post-livrare și derularea serviciilor post-vânzare aferente contractelor.",
+                color: "#008060",
+                bgColor: "#E8F5E9",
+              },
+              {
+                icon: ShieldCheck,
+                title: "INCHISE",
+                desc: "Arhiva contractelor finalizate integral, servind drept referință pentru istoricul de succes al companiei.",
+                color: "#00695C",
+                bgColor: "#E0F2F1",
+              },
+              {
+                icon: Headset,
+                title: "SERVICE",
+                desc: "Evidența intervențiilor tehnice post-garanție și a solicitărilor de asistență tehnică din partea clienților.",
+                color: "#00796B",
+                bgColor: "#E0F7FA",
+              },
+            ].map((section, i) => (
+              <motion.div
+                key={section.title}
+                className="bg-white rounded-xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-[#E0F2F1] group"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-30px" }}
+                variants={scaleIn}
+                custom={i}
+                whileHover={{ y: -4 }}
+              >
+                <div
+                  className="w-14 h-14 rounded-lg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
+                  style={{ backgroundColor: section.bgColor }}
+                >
+                  <section.icon
+                    className="w-7 h-7"
+                    style={{ color: section.color }}
+                  />
+                </div>
+                <h3
+                  className="text-lg font-bold mb-3 tracking-wide"
+                  style={{
+                    color: section.color,
+                    fontFamily: "'Montserrat', sans-serif",
+                  }}
+                >
+                  {section.title}
+                </h3>
+                <p
+                  className="text-[#4A5B58] text-sm leading-relaxed"
+                  style={{ fontFamily: "'Open Sans', sans-serif" }}
+                >
+                  {section.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          ORGANIZATIONAL CHART
+      ═══════════════════════════════════════════════════════════ */}
+      <section
+        className="py-16 md:py-20 relative"
+        style={{
+          backgroundImage: `url(${ORG_BG_URL})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="container mx-auto px-6 max-w-6xl relative z-10">
+          <motion.div
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUp}
+            custom={0}
+          >
+            <h2
+              className="text-2xl md:text-3xl font-bold text-[#005C4B] tracking-tight uppercase"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              Organigrama Iulian Cântar
+            </h2>
+            <div className="w-16 h-1 bg-[#008060] rounded-full mx-auto mt-4" />
+          </motion.div>
+
+          {/* Level 1: Director General */}
+          <motion.div
+            className="flex justify-center mb-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={scaleIn}
+            custom={0}
+          >
+            <div className="bg-[#005C4B] text-white rounded-xl px-8 py-5 shadow-lg text-center min-w-[220px]">
+              <p
+                className="text-xl font-bold tracking-wide"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                IULIAN
+              </p>
+              <p
+                className="text-[#A8E6CF] text-sm font-medium mt-1"
+                style={{ fontFamily: "'Open Sans', sans-serif" }}
+              >
+                Director General
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Connector line */}
+          <div className="flex justify-center mb-2">
+            <div className="w-px h-8 bg-[#005C4B]/40" />
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="w-[80%] max-w-[900px] h-px bg-[#005C4B]/30" />
+          </div>
+
+          {/* Level 2: Departments */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6">
+            {[
+              {
+                dept: "Departament Vânzări",
+                role: "Director Vânzări",
+                name: "Alex Florian",
+                icon: Building2,
+              },
+              {
+                dept: "Departament Operațional",
+                role: "Director Operațional",
+                name: "Dan (DD)",
+                icon: Settings2,
+              },
+              {
+                dept: "Departament Tehnic",
+                role: "Manager Tehnic",
+                name: "Dan Dinescu",
+                icon: Monitor,
+              },
+              {
+                dept: "Departament Juridic",
+                role: "Consilier Juridic",
+                name: "Mihai Popa",
+                icon: ClipboardList,
+              },
+            ].map((dept, i) => (
+              <motion.div
+                key={dept.dept}
+                className="relative"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={scaleIn}
+                custom={i + 1}
+              >
+                {/* Connector line from top */}
+                <div className="hidden lg:flex justify-center mb-2">
+                  <div className="w-px h-6 bg-[#005C4B]/40" />
+                </div>
+                <div className="bg-[#008060] text-white rounded-xl p-4 md:p-5 shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                  <dept.icon className="w-6 h-6 mx-auto mb-2 text-[#A8E6CF]" />
+                  <p
+                    className="text-xs font-bold uppercase tracking-wider text-[#A8E6CF] mb-1"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  >
+                    {dept.dept}
+                  </p>
+                  <p
+                    className="text-xs text-white/80 mb-1"
+                    style={{ fontFamily: "'Open Sans', sans-serif" }}
+                  >
+                    {dept.role}
+                  </p>
+                  <p
+                    className="text-base font-bold"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  >
+                    {dept.name}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Level 3: Teams */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {/* Sales Team */}
+            <motion.div
+              className="bg-white/90 backdrop-blur-sm rounded-xl p-4 md:p-5 shadow-sm border border-[#E0F2F1]"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={scaleIn}
+              custom={5}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <Users className="w-4 h-4 text-[#005C4B]" />
+                <p
+                  className="text-xs font-bold text-[#005C4B] uppercase tracking-wider"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  Echipa Vânzări
+                </p>
+              </div>
+              <div className="space-y-1.5">
+                {[
+                  "Alex - Oltenia",
+                  "Raluca - Muntenia",
+                  "Ionel - Moldova Nord",
+                  "Silviu - SudEst",
+                  "Andreea - Moldova Sud",
+                  "Razvan - Crișana",
+                  "Liana - Ardeal",
+                ].map((agent) => (
+                  <p
+                    key={agent}
+                    className="text-[#2D3B38] text-xs md:text-sm"
+                    style={{ fontFamily: "'Open Sans', sans-serif" }}
+                  >
+                    {agent}
+                  </p>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Operational Team */}
+            <motion.div
+              className="bg-white/90 backdrop-blur-sm rounded-xl p-4 md:p-5 shadow-sm border border-[#E0F2F1]"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={scaleIn}
+              custom={6}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <Users className="w-4 h-4 text-[#008060]" />
+                <p
+                  className="text-xs font-bold text-[#008060] uppercase tracking-wider"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  Echipa Operațional
+                </p>
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#008060]" />
+                  <p
+                    className="text-[#2D3B38] text-xs md:text-sm font-semibold"
+                    style={{ fontFamily: "'Open Sans', sans-serif" }}
+                  >
+                    Vlad
+                  </p>
+                </div>
+                <p
+                  className="text-[#5A6B68] text-xs ml-3.5"
+                  style={{ fontFamily: "'Open Sans', sans-serif" }}
+                >
+                  Manager Achiziții
+                </p>
+                <div className="flex items-center gap-2 mt-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#008060]" />
+                  <p
+                    className="text-[#2D3B38] text-xs md:text-sm font-semibold"
+                    style={{ fontFamily: "'Open Sans', sans-serif" }}
+                  >
+                    Andrei
+                  </p>
+                </div>
+                <p
+                  className="text-[#5A6B68] text-xs ml-3.5"
+                  style={{ fontFamily: "'Open Sans', sans-serif" }}
+                >
+                  Operator Zeus
+                </p>
+                <div className="flex items-center gap-2 mt-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#008060]" />
+                  <p
+                    className="text-[#2D3B38] text-xs md:text-sm font-semibold"
+                    style={{ fontFamily: "'Open Sans', sans-serif" }}
+                  >
+                    Mădălina
+                  </p>
+                </div>
+                <p
+                  className="text-[#5A6B68] text-xs ml-3.5"
+                  style={{ fontFamily: "'Open Sans', sans-serif" }}
+                >
+                  Asistent Manager Operațional
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Placeholder for Tehnic (no sub-team listed) */}
+            <div />
+
+            {/* Placeholder for Juridic (no sub-team listed) */}
+            <div />
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          QUICK GUIDE: ZEUS CONTROL
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUp}
+            custom={0}
+          >
+            <div className="inline-flex items-center gap-2 bg-[#005C4B] text-white px-5 py-2.5 rounded-full text-sm font-bold mb-6 tracking-wide uppercase"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              <Rocket className="w-5 h-5" />
+              ZEUS Control
+            </div>
+            <h2
+              className="text-2xl md:text-3xl font-bold text-[#005C4B] tracking-tight"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              Ghid Rapid de Utilizare
+            </h2>
+            <div className="w-16 h-1 bg-[#008060] rounded-full mx-auto mt-4" />
+          </motion.div>
+
+          <div className="space-y-5">
+            {[
+              {
+                step: 1,
+                icon: MousePointerClick,
+                title: "Accesați Meniul",
+                desc: 'În bara de sus a foii Google Sheets, căutați și faceți clic pe meniul "🚀 ZEUS Control".',
+              },
+              {
+                step: 2,
+                icon: Users,
+                title: "Selectați Angajatul și Foaia",
+                desc: 'Alegeți numele angajatului și tipul de foaie ("Stoc Real" sau "Servicii") pentru care doriți să vizualizați comenzile de lucru.',
+              },
+              {
+                step: 3,
+                icon: Layers,
+                title: "Vizualizați Datele Filtrate",
+                desc: "Foaia selectată se va activa automat, afișând doar comenzile de lucru relevante pentru angajatul ales.",
+              },
+              {
+                step: 4,
+                icon: RefreshCw,
+                title: "Resetați Filtrele",
+                desc: 'Pentru a vedea toate datele, selectați "🔄 RESETEAZĂ FILTRELE" din același meniu.',
+              },
+              {
+                step: 5,
+                icon: Filter,
+                title: "Coloana de Filtrare",
+                desc: 'Filtrarea se realizează pe baza coloanei "Comenzi de lucru". Asigurați-vă că numele angajaților sunt menționate corect în această coloană.',
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                className="flex items-start gap-5 bg-[#F0F7F5] rounded-xl p-5 md:p-6 border border-[#E0F2F1] hover:border-[#008060]/30 transition-colors duration-300"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-20px" }}
+                variants={fadeUp}
+                custom={i}
+              >
+                {/* Step number */}
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#005C4B] text-white flex items-center justify-center shadow-md">
+                  <span
+                    className="text-lg font-bold"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  >
+                    {item.step}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <item.icon className="w-4 h-4 text-[#008060] flex-shrink-0" />
+                    <h3
+                      className="text-base font-bold text-[#005C4B]"
+                      style={{ fontFamily: "'Montserrat', sans-serif" }}
+                    >
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p
+                    className="text-[#4A5B58] text-sm leading-relaxed"
+                    style={{ fontFamily: "'Open Sans', sans-serif" }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+          FOOTER
+      ═══════════════════════════════════════════════════════════ */}
+      <footer
+        className="py-8 text-center"
+        style={{
+          background: `linear-gradient(135deg, #003D33 0%, #005C4B 100%)`,
+        }}
+      >
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <img
+              src={LOGO_URL}
+              alt="Iulian Cântar"
+              className="w-8 h-8 object-contain"
+            />
+            <p
+              className="text-white/90 text-sm font-semibold"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              ZEUS v2.0 — Iulian Cântar
+            </p>
+          </div>
+          <p
+            className="text-[#A8E6CF]/60 text-xs"
+            style={{ fontFamily: "'Open Sans', sans-serif" }}
+          >
+            Turnul de Control al Companiei &middot; Hai să facem treabă!
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}

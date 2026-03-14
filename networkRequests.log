@@ -1,0 +1,13 @@
+{
+  "query": "SELECT COUNT(*) as cnt FROM servicii;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2ow7sy5Amb6eZwA.root --database ANCGULnngiXNH25MisKV7V --execute SELECT COUNT(*) as cnt FROM servicii;",
+  "rows": [
+    {
+      "cnt": "118"
+    }
+  ],
+  "messages": [],
+  "stdout": "cnt\n118\n",
+  "stderr": "",
+  "execution_time_ms": 346
+}
